@@ -299,7 +299,11 @@ import Server (server)
 
 -- | Starts server on port 8085
 main :: IO ()
-main = runServer 8085 (withSwagger def server)
+main = do
+  putStrLn ("Server is working on port: " <> show port)
+  runServer port (withSwagger def server)
+  where
+    port = 8085
 
 {-# START_FILE src/Server.hs #-}
 -- | The server definition
